@@ -1,0 +1,62 @@
+#app {
+    height: 100%;
+}
+.ant-layout {
+    height: 100%;
+}
+
+.trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color .3s;
+}
+  
+.trigger:hover {
+    color: lightgrey;
+}
+.trigger {
+    color: #ff5622;
+}
+  
+.logo {
+    height: 32px;
+    margin: 14px;
+}
+
+.logo-expand {
+    background: url("../img/logo.svg") no-repeat top left;
+}
+.logo-collapsed {
+    background: url("../img/logo_collapsed.svg") no-repeat top left;
+}
+
+.ant-menu-inline-collapsed > span.menuItemText {
+    display:none;
+}
+
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+    border-right: 0 !important;
+}
+
+.login-form-container {
+    border: 1px solid #f0f2f5;
+    background-color: white;
+    margin-top: 6%;
+    width: 450px;
+    /* height: 35%; */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 7px;
+}
+.login-form-logo {
+    background-color: #f0f2f5;
+}
+.login-form-logo > div.ant-card-body {
+    display: none;
+}
+.login-form { }
+.login-form-button {
+    width: 100%;
+}
