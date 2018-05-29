@@ -1,10 +1,8 @@
-import React from 'react';
+import "./css/ant.less";
+import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-
-import "./css/ant.less";
-
-import { store } from './_helpers';
+import { store } from './_helpers/store';
 import { App } from './App';
 
 render(

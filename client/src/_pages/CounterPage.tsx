@@ -1,13 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { Button, Badge, Modal } from 'antd';
 const ButtonGroup = Button.Group;
 import { Link, NavLink } from 'react-router-dom';
-import { userActions } from '../_actions';
-import { AppLayout } from '../_components';
+import { UserActions } from '../_actions/UserActions';
 
-class CounterPage extends React.Component {
-    constructor(props) {
+class CounterPage extends React.Component<any, any> {
+    constructor(props: any) {
         super(props);
         this.state = { 
             currentCount: 0,
@@ -20,23 +19,17 @@ class CounterPage extends React.Component {
         this.decreaseCounter = this.decreaseCounter.bind(this);
         this.resetCounter = this.resetCounter.bind(this);
     }
-    componentDidMount() {
-        this.props.dispatch(userActions.getAll());
-    }
-
     showModal() {
         this.setState({
             modalVisible: true,
         });
     }
-    handleOk(e) {
-        console.log(e);
+    handleOk(e: any) {
         this.setState({
             modalVisible: false,
         });
     }
-    handleCancel(e) {
-        console.log(e);
+    handleCancel(e: any) {
         this.setState({
             modalVisible: false,
         });
@@ -59,9 +52,8 @@ class CounterPage extends React.Component {
 
     render() {
         const { user, users } = this.props;
-        return (
-            <AppLayout current='counter'>
-                 <Button type="primary" onClick={this.showModal}>Show counter</Button>
+        return (<div>
+        <Button type="primary" onClick={this.showModal}>Show counter</Button>
                     <Modal
                         title="My Modal"
                         visible={this.state.modalVisible}
@@ -85,13 +77,12 @@ class CounterPage extends React.Component {
                         </ButtonGroup>
                     </div>
                     </div>
-                    </Modal>
-            </AppLayout>
+                    </Modal></div>
         );
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
     const { users, authentication } = state;
     const { user } = authentication;
     return {

@@ -2,13 +2,13 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.jsx',
+    entry: './src/index.tsx',
     output: {
         path: path.resolve('dist'),
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.less']
+        extensions: ['.js', '.jsx', '.less', '.tsx', '.ts']
     },
     module: {
         rules: [
@@ -33,6 +33,11 @@ module.exports = {
             {
                 test: /\.(png|jpg|jpeg|gif|svg)$/,
                 loader: 'url-loader?limit=25000'
+            },
+            {
+                test: /\.tsx?$/,
+                include: /client/,
+                use: 'awesome-typescript-loader?silent=true'
             },
             {
                 test: /\.less$/,

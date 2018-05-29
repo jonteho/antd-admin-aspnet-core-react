@@ -1,19 +1,18 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { Card, Col, Row, Icon } from 'antd';
 import { Link, NavLink } from 'react-router-dom';
-import { userActions } from '../_actions';
-import { AppLayout } from '../_components';
-import { authHeader, config } from '../_helpers';
+import { config } from '../_helpers/config';
+import { authHeader } from '../_helpers/auth-header';
 
-class CardsPage extends React.Component {
-    constructor(props) {
+class CardsPage extends React.Component<any, any> {
+    constructor(props: any) {
         super(props);
         this.state = { 
             cards: [], 
             loading: true 
         };
-        const requestOptions = {
+        const requestOptions: any = {
             method: 'GET',
             headers: authHeader()
         };
@@ -24,44 +23,42 @@ class CardsPage extends React.Component {
             });
     }
     componentDidMount() {
-        this.props.dispatch(userActions.getAll());
+        // this.props.dispatch(userActions.getAll());
     }
-    handleResponse(response) {
+    handleResponse(response: any) {
         return new Promise((resolve, reject) => {
             if (response.ok) {
                 // return json if it was returned in the response
                 var contentType = response.headers.get("content-type");
                 if (contentType && contentType.includes("application/json")) {
-                    response.json().then(json => resolve(json));
+                    response.json().then((json: any) => resolve(json));
                 } else {
                     resolve();
                 }
             } else {
                 // return error message from response body
-                response.text().then(text => reject(text));
+                response.text().then((text: any) => reject(text));
             }
         });
     }
-    handleError(error) {
+    handleError(error: any) {
         return Promise.reject(error && error.message);
     }
     render() {
         const { user, users } = this.props;
-        return (
-            <AppLayout current='cards'>
-                <Row gutter={16}>
-                    {this.state.cards.map(card =>
-                        <Col style={{padding: 5}} span={8}>
-                        <Card title={card.name} extra={<Icon type="setting" />} style={{ width: 270 }}></Card>
-                        </Col>
-                    )}
-                </Row>
-            </AppLayout>
+        return (<div>
+            <Row gutter={16}>
+                {this.state.cards.map((card: any) =>
+                    <Col style={{padding: 5}} span={8}>
+                    <Card title={card.name} extra={<Icon type="setting" />} style={{ width: 270 }}></Card>
+                    </Col>
+                )}
+            </Row></div>
         );
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
     const { users, authentication } = state;
     const { user } = authentication;
     return {

@@ -1,16 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Form, Icon, Input, Button, Checkbox, Row, Col, message, Card,Avatar } from 'antd';
 const FormItem = Form.Item;
-import { userActions } from '../_actions';
+import { UserActions } from '../_actions/UserActions';
 
-class LoginPage extends React.Component {
-    constructor(props) {
+class LoginPage extends React.Component<any, any> {
+    userActions: UserActions;
+    constructor(props: any) {
         super(props);
-
+        this.userActions = new UserActions();
         // reset login status
-        this.props.dispatch(userActions.logout());
+        this.props.dispatch(this.userActions.logout());
 
         this.state = {
             username: '',
@@ -22,20 +23,18 @@ class LoginPage extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e) {
+    handleChange(e: any) {
         const { name, value } = e.target;
         this.setState({ [name]: value });
     }
 
-    handleSubmit(e) {
+    handleSubmit(e: any) {
         e.preventDefault();
-        console.log(e);
         this.setState({ submitted: true });
         const { username, password } = this.state;
-        console.log(this.state);
         const { dispatch } = this.props;
         if (username && password) {
-            dispatch(userActions.login(username, password));
+            dispatch(this.userActions.login(username, password));
         }
     }
 
@@ -44,9 +43,9 @@ class LoginPage extends React.Component {
         const { username, password, submitted } = this.state;
         return (
             <Row justify="center" align="middle" type="flex" className="login-form-container">
-            <Card className="login-form-logo" style={{ width: 450 }} bordered={false} cover={<img alt="logo" src="img/logo.svg" />}>
+            <Card className="login-form-logo" style={{ width: 450 }} bordered={false} cover={<div className="logo" />}>
             </Card>
-              <Card title="Login" bordered={false} style={{ width: 450 }}>
+              <Card bordered={false} style={{ width: 450 }}>
                 <Form onSubmit={this.handleSubmit} className="login-form">
                   <FormItem>
                       <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} onChange={this.handleChange} placeholder="Username" value={username} name="username" /> 
@@ -94,7 +93,7 @@ class LoginPage extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
     const { loggingIn } = state.authentication;
     return {
         loggingIn

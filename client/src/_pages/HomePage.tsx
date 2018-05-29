@@ -1,23 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'antd';
 import { Link, NavLink } from 'react-router-dom';
-import { userActions } from '../_actions';
-import { AppLayout } from '../_components';
-
-class HomePage extends React.Component {
-    constructor(props) {
+class HomePage extends React.Component<any, any> {
+    constructor(props: any) {
         super(props);
-    }
-    componentDidMount() {
-        this.props.dispatch(userActions.getAll());
     }
 
     render() {
         const { user, users } = this.props;
-        return (
-            <AppLayout current='home'>
-                <div>
+        return (<div>
                     <h1>Hello, world!</h1>
                     <p>Welcome to your new single-page application, built with:</p>
                     <ul>
@@ -39,12 +31,12 @@ class HomePage extends React.Component {
                         You can generate an ASP.NET Core application with React and Redux using <code>dotnet new reactredux</code> instead of using this template.
                     </p>
                 </div>
-            </AppLayout>
+            
         );
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
     const { users, authentication } = state;
     const { user } = authentication;
     return {

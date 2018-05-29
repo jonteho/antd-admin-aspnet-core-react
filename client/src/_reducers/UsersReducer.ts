@@ -1,6 +1,6 @@
-import { userConstants } from '../_constants';
+import { userConstants } from '../_constants/UserConstants';
 
-export function users(state = {}, action) {
+export function users(state: any = {}, action: any) {
   switch (action.type) {
     case userConstants.GETALL_REQUEST:
       return {
@@ -18,7 +18,7 @@ export function users(state = {}, action) {
       // add 'deleting:true' property to user being deleted
       return {
         ...state,
-        items: state.items.map(user =>
+        items: state.items.map((user: any) =>
           user.id === action.id
             ? { ...user, deleting: true }
             : user
@@ -27,13 +27,13 @@ export function users(state = {}, action) {
     case userConstants.DELETE_SUCCESS:
       // remove deleted user from state
       return {
-        items: state.items.filter(user => user.id !== action.id)
+        items: state.items.filter((user: any) => user.id !== action.id)
       };
     case userConstants.DELETE_FAILURE:
       // remove 'deleting:true' property and add 'deleteError:[error]' property to user 
       return {
         ...state,
-        items: state.items.map(user => {
+        items: state.items.map((user: any) => {
           if (user.id === action.id) {
             // make copy of user without 'deleting:true' property
             const { deleting, ...userCopy } = user;
