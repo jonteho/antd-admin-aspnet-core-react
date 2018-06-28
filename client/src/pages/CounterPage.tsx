@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Badge, Modal } from 'antd';
 const ButtonGroup = Button.Group;
 import { Link, NavLink } from 'react-router-dom';
-import { UserActions } from '../_actions/UserActions';
+import { UserActions } from '../actions/UserActions';
 
 class CounterPage extends React.Component<any, any> {
     constructor(props: any) {

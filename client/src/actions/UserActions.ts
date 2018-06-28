@@ -1,15 +1,7 @@
-import { userConstants } from '../_constants/UserConstants';
-import { UserService } from '../_services/UserService';
+import { userConstants } from '../constants/UserConstants';
+import { UserService } from '../services/UserService';
 import { AlertActions } from './AlertActions';
-import { history } from '../_helpers/history';
-
-// export const userActions = {
-//     login,
-//     logout,
-//     register,
-//     getAll,
-//     delete: _delete
-// };
+import { history } from '../helpers/history';
 
 export class UserActions {
     userService: UserService;

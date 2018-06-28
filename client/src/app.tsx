@@ -2,16 +2,16 @@ import * as React from 'react';
 import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Layout, Alert } from 'antd';
-import { history } from './_helpers/history';
-import { AlertActions } from './_actions/AlertActions';
-import { PrivateRoute } from './_components/PrivateRoute';
-import PageShell from './_components/PageShell';
+import { history } from './helpers/history';
+import { AlertActions } from './actions/AlertActions';
+import { PrivateRoute } from './components/PrivateRoute';
+import PageShell from './components/PageShell';
 
-import { HomePage } from './_pages/HomePage';
-import { LoginPage } from './_pages/LoginPage';
-import { FetchDataPage } from './_pages/FetchDataPage';
-import { CounterPage } from './_pages/CounterPage';
-import { CardsPage } from './_pages/CardsPage';
+import { HomePage } from './pages/HomePage';
+import { LoginPage } from './pages/LoginPage';
+import { FetchDataPage } from './pages/FetchDataPage';
+import { CounterPage } from './pages/CounterPage';
+import { CardsPage } from './pages/CardsPage';
 
 class App extends React.Component<any, any> {
     constructor(props: any) {

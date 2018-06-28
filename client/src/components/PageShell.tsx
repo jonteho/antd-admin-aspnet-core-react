@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
-import { AppLayout } from '../_components/AppLayout';
+import { AppLayout } from '../components/AppLayout';
 
 const PageShell = (Page: any, current: string) => {
     return (props: any) =>

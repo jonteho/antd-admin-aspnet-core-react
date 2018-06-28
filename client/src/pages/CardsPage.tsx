@@ -2,8 +2,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Card, Col, Row, Icon } from 'antd';
 import { Link, NavLink } from 'react-router-dom';
-import { config } from '../_helpers/config';
-import { authHeader } from '../_helpers/auth-header';
+import { config } from '../helpers/config';
+import { authHeader } from '../helpers/auth-header';
 
 class CardsPage extends React.Component<any, any> {
     constructor(props: any) {

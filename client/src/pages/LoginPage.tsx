@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Form, Icon, Input, Button, Checkbox, Row, Col, message, Card,Avatar } from 'antd';
 const FormItem = Form.Item;
-import { UserActions } from '../_actions/UserActions';
+import { UserActions } from '../actions/UserActions';
 
 class LoginPage extends React.Component<any, any> {
     userActions: UserActions;

@@ -1,5 +1,5 @@
-import { config } from '../_helpers/config';
-import { authHeader } from '../_helpers/auth-header';
+import { config } from '../helpers/config';
+import { authHeader } from '../helpers/auth-header';
 
 export class UserService {
     login(username: string, password: string) {
